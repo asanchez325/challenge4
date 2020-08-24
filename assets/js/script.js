@@ -1,12 +1,14 @@
-// Gathering HTML elements for manipulation
+// Variables
+var startQuizDiv = document.getElementById("welcome");
+var startQuizButton = document.getElementById("startbtn");
+var quizTimer = document.getElementById("timer");
 var quizBody = document.getElementById("quiz");
+var questionsEl = document.getElementById("questions");
 var resultsEl = document.getElementById("result");
 var finalScoreEl = document.getElementById("finalScore");
 var gameoverDiv = document.getElementById("gameover");
-var questionsEl = document.getElementById("questions");
-var quizTimer = document.getElementById("timer");
-var startQuizButton = document.getElementById("startbtn");
-var startQuizDiv = document.getElementById("welcome");
+
+// High Score Variables
 var highscoreContainer = document.getElementById("highscoreContainer");
 var highscoreDiv = document.getElementById("high-scorePage");
 var highscoreInputName = document.getElementById("initials");
@@ -14,6 +16,7 @@ var highscoreDisplayName = document.getElementById("highscore-initials");
 var endGameBtns = document.getElementById("endGameBtns");
 var submitScoreBtn = document.getElementById("submitScore");
 var highscoreDisplayScore = document.getElementById("highscore-score");
+//button variables
 var buttonA = document.getElementById("a");
 var buttonB = document.getElementById("b");
 var buttonC = document.getElementById("c");
@@ -21,58 +24,64 @@ var buttonD = document.getElementById("d");
 
 // Quiz question object
 var quizQuestions = [{
-    question: "Question 1 test?",
-    choiceA: "1",
-    choiceB: "2",
-    choiceC: "3",
-    choiceD: "4",
+    question: "Inside which HTML element do we put the JavaScript?",
+    choiceA: "div",
+    choiceB: "js",
+    choiceC: "script",
+    choiceD: "JavaScript",
     correctAnswer: "c"},
-  {
-    question: "Question 2 test?",
-    choiceA: "1",
-    choiceB: "2",
-    choiceC: "3",
-    choiceD: "4",
-    correctAnswer: "a"},
    {
-    question: "Question 3 test?",
-    choiceA: "1",
-    choiceB: "2",
-    choiceC: "3",
-    choiceD: "4",
+    question: "Using _______ statement is how you test for a specific condition?",
+    choiceA: "Choose",
+    choiceB: "If",
+    choiceC: "Else",
+    choiceD: "Select",
     correctAnswer: "b"},
     {
-    question: "Question 4 test?",
-    choiceA: "1;",
-    choiceB: "2;",
-    choiceC: "3;",
-    choiceD: "4;",
-    correctAnswer: "d"},
+    question: "JavaScript entities start with _____and end with______.?",
+    choiceA: "Ampersand, semicolon",
+    choiceB: "semicolon, Ampersand",
+    choiceC: "Colon, Semicolon",
+    choiceD: "No entities are needed",
+    correctAnswer: "a"},
     {
-    question: "Question 5 test?",
-    choiceA: "1",
-    choiceB: "2",
-    choiceC: "3",
-    choiceD: "4",
+    question: "Which one of these HTML Drag and Drop API events signifies the drag event is over?",
+    choiceA: "dragend",
+    choiceB: "dragexit",
+    choiceC: "dragleave",
+    choiceD: "None of the above",
     correctAnswer: "a"},  
     {
-    question: "Question 6?",
-    choiceA: "1",
-    choiceB: "2",
-    choiceC: "3",
-    choiceD: "4",
+    question: "What does the API 'DOM' stand for?",
+    choiceA: "Direct Oriented Match",
+    choiceB: "Discrete Open Model",
+    choiceC: "Document Object Model",
+    choiceD: "Digital Object Method",
     correctAnswer: "c"},
     {
-    question: "Question 7?",
-    choiceA: "1",
-    choiceB: "2",
-    choiceC: "3",
-    choiceD: "4",
+    question: "Which of the following is the correct syntax to display an alert box using js?",
+    choiceA: "alertbox('Test')",
+    choiceB: "msg('Test')",
+    choiceC: "Test: alert;",
+    choiceD: "alert('Test')",
+    correctAnswer: "d"},
+    {
+    question: "The unordered collection of properties, each of which has a name and a value is called?",
+    choiceA: "String",
+    choiceB: "Object",
+    choiceC: "Both A and B",
+    choiceD: "None of the above",
     correctAnswer: "b"},
-        
+    {
+    question: "What is the output of the following: var grand_Total=eval('10*10+5');?",
+    choiceA: "10*10+5",
+    choiceB: "105 as an integer",
+    choiceC: "105 as an integer value",
+    choiceD: "The limit does not exist",
+    correctAnswer: "c"},
     
     ];
-// Other global variables
+// Other variables
 var finalQuestionIndex = quizQuestions.length;
 var currentQuestionIndex = 0;
 var timeLeft = 60;
@@ -80,7 +89,7 @@ var timerInterval;
 var score = 0;
 var correct;
 
-// This function cycles through the object array containing the quiz questions to generate the questions and answers.
+// Cycles through the object quiz array to generate the questions and answers.
 function generateQuizQuestion(){
     gameoverDiv.style.display = "none";
     if (currentQuestionIndex === finalQuestionIndex){
@@ -94,7 +103,7 @@ function generateQuizQuestion(){
     buttonD.innerHTML = currentQuestion.choiceD;
 };
 
-// Start Quiz function starts the TimeRanges, hides the start button, and displays the first quiz question.
+// Welcome to Quiz.
 function startQuiz(){
     gameoverDiv.style.display = "none";
     startQuizDiv.style.display = "none";
@@ -112,7 +121,7 @@ function startQuiz(){
       }, 1000);
     quizBody.style.display = "block";
 }
-// This function is the end page screen that displays your score after either completeing the quiz or upon timer run out
+// Results page
 function showScore(){
     quizBody.style.display = "none"
     gameoverDiv.style.display = "flex";
@@ -121,8 +130,8 @@ function showScore(){
     finalScoreEl.innerHTML = "You got " + score + " out of " + quizQuestions.length + " correct!";
 }
 
-// On click of the submit button, we run the function highscore that saves and stringifies the array of high scores already saved in local stoage
-// as well as pushing the new user name and score into the array we are saving in local storage. Then it runs the function to show high scores.
+
+// HighScore Board
 submitScoreBtn.addEventListener("click", function highscore(){
     
     
@@ -145,12 +154,10 @@ submitScoreBtn.addEventListener("click", function highscore(){
         savedHighscores.push(currentHighscore);
         localStorage.setItem("savedHighscores", JSON.stringify(savedHighscores));
         generateHighscores();
-
     }
-    
 });
 
-// This function clears the list for the high scores and generates a new high score list from local storage
+// Highscore list
 function generateHighscores(){
     highscoreDisplayName.innerHTML = "";
     highscoreDisplayScore.innerHTML = "";
@@ -165,7 +172,7 @@ function generateHighscores(){
     }
 }
 
-// This function displays the high scores page while hiding all of the other pages from 
+// Display high score page
 function showHighscore(){
     startQuizDiv.style.display = "none"
     gameoverDiv.style.display = "none";
@@ -176,14 +183,14 @@ function showHighscore(){
     generateHighscores();
 }
 
-// This function clears the local storage of the high scores as well as clearing the text from the high score board
+// Clear highscore
 function clearScore(){
     window.localStorage.clear();
     highscoreDisplayName.textContent = "";
     highscoreDisplayScore.textContent = "";
 }
 
-// This function sets all the variables back to their original values and shows the home page to enable replay of the quiz
+// Replay Quiz
 function replayQuiz(){
     highscoreContainer.style.display = "none";
     gameoverDiv.style.display = "none";
@@ -193,7 +200,7 @@ function replayQuiz(){
     currentQuestionIndex = 0;
 }
 
-// This function checks the response to each answer 
+// Checks answer responses
 function checkAnswer(answer){
     correct = quizQuestions[currentQuestionIndex].correctAnswer;
 
@@ -202,16 +209,16 @@ function checkAnswer(answer){
         alert("That Is Correct!");
         currentQuestionIndex++;
         generateQuizQuestion();
-        //display in the results div that the answer is correct.
+        //display if answer is correct.
     }else if (answer !== correct && currentQuestionIndex !== finalQuestionIndex){
         alert("That Is Incorrect.")
         currentQuestionIndex++;
         generateQuizQuestion();
-        //display in the results div that the answer is wrong.
+        //display if answer is wrong.
     }else{
         showScore();
     }
 }
 
-// This button starts the quiz!
+// Starts the quiz!
 startQuizButton.addEventListener("click",startQuiz);
