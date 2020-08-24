@@ -7,6 +7,14 @@ h2{
     margin-top: -.5rem;
     text-align: center;
 }
+p{
+    color: black;
+    text-shadow: .5px .5px white;
+    text-align: center;
+    font-size: xx-large;
+    font-family: sans-serif;
+
+}
 .container {
     width: 100vw;
     height: 100vh;
@@ -16,6 +24,9 @@ h2{
     max-width: 80rem;
     margin: 0 auto;
   }
+  input{
+    text-align: center;
+}
 #welcome{
     display: flex;
     flex-direction: column;
@@ -24,7 +35,7 @@ h2{
 button {
     display: inline-block;
     font-family: sans-serif;
-    background-color: #7e21e9;
+    background-color: #530a75;
     border-radius: 10px;
     border: 3px double #cccccc;
     color: #eeeeee;
@@ -36,4 +47,103 @@ button {
   }
   button:hover{
     box-shadow: 4px 3px 6px #530a75;
+}
+/*Timer Section*/
+.header {
+    font-family: sans-serif;
+    background-color: #530a75;
+    color: #eeeeee;
+    font-size: x-large;
+    text-shadow: .5px .5px black;
+    text-align: center;
+    border-radius: 10px;
+    border: 3px double #cccccc;
+    font-size: 15px;
+    padding: 20px;
+    width: 100%;
+    margin-top: 3px;
+    display:flex;
+    justify-content: space-between;
+}
+
+/*Quiz Section Format*/
+#quiz {
+    display: none;
+}
+#questions {
+    align-items: center;
+}
+
+/*Results section*/
+#result {
+    display: none;
+}
+#gameover {
+    text-align: center;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+#highScore{
+    height: 1.5rem;
+    border: groove 2px;
+}
+
+#high-scorePage{
+    display: none;
+    width: 50%;
+    border: solid;
+    border-color: silver;
+    border-bottom-style: groove;
+    padding-bottom: .3rem;
+    background: lightsteelblue;
+}
+
+#highscore-header{
+    display:flex;
+    justify-content: space-around;
+    border-bottom-style: outset;
+    margin-bottom: .5rem;
+    background-color: #530a75;
+    color: #eeeeee;
+    font-family: sans-serif;
+}
+#highscoreContainer{
+    height: 100%;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#initials{
+    margin: .5rem;
+    height: 1.75rem;
+}
+
+#highscore-initials{
+    display: inline-block;
+    padding-left: 9.5rem;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+#highscore-score{
+    float: right;
+    padding-right: 8.75rem;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+#finalScore{
+    padding-bottom: 0.5rem;
+    font-size: x-large;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+#endGameBtns{
+    display: none;
 }

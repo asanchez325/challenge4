@@ -7,16 +7,50 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+    <!--Header Runner-->
+    <div class="header">
+        <button id="startPageHighscore" onclick="showHighscore()">High Scores</button>
+        <button id="timer">Time left: </div>
+    </div>
     <!--Welcome to Code Quiz-->
     <div  class="container">
         <div id="welcome">
             <h2>This Code Quiz will Test your knowledge <br> on JavaScript Fundamentals </h2>
+            <h3>This quiz is timed; every incorrect answer will subtract 5 seconds.</h3>
             <button id="startbtn">Start Code Quiz</button>
         </div>
     <!--Code Questions-->
-    <!--Final Score-->
-    <!--High Score Board-->
+    <div id="quiz">
+            <div id="questions"><p>Questions Placeholder</p></div>
+                <button id="a" onclick="checkAnswer('a')">A</button> <br>
+                <button id="b" onclick="checkAnswer('b')">B</button> <br>
+                <button id="c" onclick="checkAnswer('c')">C</button> <br>
+                <button id="d" onclick="checkAnswer('d')">D</button> <br>
+            <div id="result"></div>
     </div>
-    
+    <!--Final Score-->
+    <div id="gameover">
+
+        <div id="finalScore"></div>
+        <input type="text" size = "40" placeholder="Enter you initials for high score" name="intials" id="initials"/>
+        <button id="submitScore">Submit Score</button>
+    </div>
+      <!--High Score Board-->
+    <div id=highscoreContainer>
+    <div id="high-scorePage">
+        <div id="highscore-header">
+            <h3>User Initials</h3>
+            <h3>Score</h3>
+        </div>
+        <div id = "highscore-initials"></div>
+        <div id = "highscore-score"></div>
+    </div>
+    <div id="endGameBtns">
+        <button id="playAgain" onclick="replayQuiz()">Play Again</button>
+        <button id="clearHighscore" onclick="clearScore()">Clear Highscores</button>
+    </div>
+</div>
+</div>
+<script src="assets/js/script.js"></script>
 </body>
 </html>
