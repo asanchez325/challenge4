@@ -9,7 +9,7 @@ A website to generate a short timed quiz on JavaScript Fundamentals.
 ## Website 
 https://asanchez325.github.io/challenge4/
 ## Preview
-![alt preview](assets/images/Capture.JPG) 
+![alt preview](assets/images/Capture.PNG) 
 ## User Story
 AS A coding boot camp student
 I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
